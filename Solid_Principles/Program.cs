@@ -1,3 +1,4 @@
+// Test comment: AI assistant is working correctly.
 var builder = WebApplication.CreateBuilder(args);
 
 // 1. დაამატეთ Swagger სერვისები
