@@ -20,11 +20,11 @@ public class EmployeeReport
         
         if (employees.Count == 0)
         {
-            Console.WriteLine("❌ თანამშრომელი ვერ მოიძებნა.");
+            Console.WriteLine("თანამშრომელი ვერ მოიძებნა.");
             return;
         }
 
-        Console.WriteLine("\n📊 === თანამშრომელთა დეტალური რეპორტი ===");
+      
         double totalSalary = 0;
 
         foreach (var employee in employees)
@@ -34,9 +34,8 @@ public class EmployeeReport
             Console.WriteLine($"ID: {employee.Id} | სახელი: {employee.Name} | ტიპი: {employee.GetType().Name} | ხელფასი: {salary:F2} ₾");
         }
 
-        Console.WriteLine($"📈 ჯამური ხელფასი: {totalSalary:F2} ₾");
-        Console.WriteLine($"👥 თანამშრომელთა რაოდენობა: {employees.Count}");
-        Console.WriteLine("======================================\n");
+        Console.WriteLine($"ჯამური ხელფასი: {totalSalary:F2} ₾");
+        Console.WriteLine($" თანამშრომელთა რაოდენობა: {employees.Count}");
     }
 
     public void PrintEmployeeSalaryInfo(int employeeId)
@@ -44,7 +43,7 @@ public class EmployeeReport
         var employee = _repository.GetEmployeeById(employeeId);
         if (employee == null)
         {
-            Console.WriteLine($"❌ ID: {employeeId} დ მქონე თანამშრომელი ვერ მოიძებნა.");
+            Console.WriteLine($"ID: {employeeId} მქონე თანამშრომელი ვერ მოიძებნა.");
             return;
         }
 
