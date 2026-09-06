@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOLID Principles</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        header p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+        }
+
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1.8rem;
+            color: white;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .card-description {
+            color: #666;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .s { background: linear-gradient(135deg, #667eea, #764ba2); }
+        .o { background: linear-gradient(135deg, #f093fb, #f5576c); }
+        .l { background: linear-gradient(135deg, #4facfe, #00f2fe); }
+        .i { background: linear-gradient(135deg, #43e97b, #38f9d7); }
+        .d { background: linear-gradient(135deg, #fa709a, #fee140); }
+
+        .status {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+            font-size: 0.9rem;
+            color: #999;
+        }
+
+        .status-badge {
+            display: inline-block;
+            background: #e3f2fd;
+            color: #1976d2;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            opacity: 0.8;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .health-status {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .health-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #4caf50;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .health-indicator.error {
+            background: #f44336;
+            animation: none;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            .principles-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .health-status {
+                bottom: 10px;
+                right: 10px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📐 SOLID Principles</h1>
+            <p>Design Principles for Object-Oriented Programming</p>
+        </header>
+
+        <div class="principles-grid">
+            <!-- S -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon s">S</div>
+                    <h2 class="card-title">Single Responsibility</h2>
+                </div>
+                <p class="card-description">
+                    A class should have only one reason to change. Each class should have a single, well-defined responsibility.
+                </p>
+                <div class="status">
+                    <span class="status-badge">Core Principle</span>
+                </div>
+            </div>
+
+            <!-- O -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon o">O</div>
+                    <h2 class="card-title">Open/Closed Principle</h2>
+                </div>
+                <p class="card-description">
+                    Software entities should be open for extension but closed for modification. Use inheritance and polymorphism.
+                </p>
+                <div class="status">
+                    <span class="status-badge">Core Principle</span>
+                </div>
+            </div>
+
+            <!-- L -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon l">L</div>
+                    <h2 class="card-title">Liskov Substitution</h2>
+                </div>
+                <p class="card-description">
+                    Derived classes must be substitutable for their base classes without breaking the application.
+                </p>
+                <div class="status">
+                    <span class="status-badge">Core Principle</span>
+                </div>
+            </div>
+
+            <!-- I -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon i">I</div>
+                    <h2 class="card-title">Interface Segregation</h2>
+                </div>
+                <p class="card-description">
+                    Clients should not be forced to depend on interfaces they do not use. Create focused interfaces.
+                </p>
+                <div class="status">
+                    <span class="status-badge">Core Principle</span>
+                </div>
+            </div>
+
+            <!-- D -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon d">D</div>
+                    <h2 class="card-title">Dependency Inversion</h2>
+                </div>
+                <p class="card-description">
+                    Depend on abstractions, not concretions. High-level modules should not depend on low-level modules.
+                </p>
+                <div class="status">
+                    <span class="status-badge">Core Principle</span>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>🚀 Solid Principles Application • ASP.NET Core 10</p>
+        </footer>
+    </div>
+
+    <div class="health-status">
+        <div class="health-indicator" id="healthIndicator"></div>
+        <span id="healthText">Checking...</span>
+    </div>
+
+    <script>
+        // Check health endpoint
+        async function checkHealth() {
+            try {
+                const response = await fetch('/health');
+                if (response.ok) {
+                    document.getElementById('healthIndicator').className = 'health-indicator';
+                    document.getElementById('healthText').textContent = 'API Healthy';
+                } else {
+                    document.getElementById('healthIndicator').className = 'health-indicator error';
+                    document.getElementById('healthText').textContent = 'API Error';
+                }
+            } catch (error) {
+                document.getElementById('healthIndicator').className = 'health-indicator error';
+                document.getElementById('healthText').textContent = 'Offline';
+            }
+        }
+
+        // Check health on load and every 10 seconds
+        checkHealth();
+        setInterval(checkHealth, 10000);
+
+        // Add click animation to cards
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('click', function() {
+                this.style.transform = 'scale(0.98)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 200);
+            });
+        });
+    </script>
+</body>
+</html>
